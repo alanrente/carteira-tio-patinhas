@@ -1,17 +1,12 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { NavigateButton } from "../../components/NavigateButton";
 
 export function Root() {
-  const navigate = useNavigate();
-
-  function navigateHandler(to: string) {
-    navigate(to);
-  }
-
   return (
     <>
       <div>
-        <button onClick={() => navigateHandler("/inicio")}>inicio</button>
-        <button onClick={() => navigateHandler("/amigo")}>amigo</button>
+        <NavigateButton label="Home" to="/" />
+        <NavigateButton label="Inicio" to="inicio" />
         <Outlet />
       </div>
     </>
