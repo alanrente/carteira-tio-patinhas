@@ -6,8 +6,16 @@ export function Root() {
     <>
       <div>
         <NavigateButton label="Home" to="/" />
-        <NavigateButton label="Inicio" to="inicio" />
-        <Outlet />
+        <NavigateButton label="Carteira" to="carteira" />
+        <NavigateButton label="Cadastrar" to="another" param="1" />
+        <div
+          style={{
+            border: "2px gray solid",
+          }}
+        >
+          <p>Root Page</p>
+          <Outlet />
+        </div>
       </div>
     </>
   );
