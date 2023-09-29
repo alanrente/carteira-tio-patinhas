@@ -1,10 +1,19 @@
+import { useCarteira } from "../../hooks/useCarteira";
+
 export function CarteiraPage() {
+  const { carteira } = useCarteira();
   return (
-    <div>
-      <h3>Carteira</h3>
-      <p>
-        Esse é o início da página, onde irá ficar qualquer coisa que eu quiser
-      </p>
-    </div>
+    <>
+      {carteira && (
+        <div>
+          <h3>Carteira</h3>
+          {carteira.map((lancamento: any) => (
+            <>
+              <p>{JSON.stringify(lancamento)}</p>
+            </>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
