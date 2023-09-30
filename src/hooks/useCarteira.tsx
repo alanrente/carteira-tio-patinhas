@@ -5,18 +5,16 @@ export function useCarteira() {
   const [carteira, setCarteira] = useState<any[]>();
 
   async function getCarteira() {
-    console.log("getCarteira");
-    const { data: carteiras } = await axios.get(
-      "http://localhost:4000/api/carteira"
-    );
+    const {
+      data: { carteiras },
+    } = await axios.get("/carteira");
 
     if (!carteiras) return;
 
-    setCarteira(carteiras.produtos);
+    setCarteira(carteiras);
   }
 
   useEffect(() => {
-    console.log("useEffect");
     getCarteira();
   }, []);
 

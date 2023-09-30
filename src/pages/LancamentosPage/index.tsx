@@ -1,18 +1,22 @@
+import { LancamentoCard } from "../../components/LancamentoCard";
 import { useCarteira } from "../../hooks/useCarteira";
+import { Principal } from "./style";
 
-export function CarteiraPage() {
+export function LancamentosPage() {
   const { carteira } = useCarteira();
+
   return (
     <>
+      <h3>Lançamentos</h3>
       {carteira && (
-        <div>
-          <h3>Carteira</h3>
+        <Principal className="principal">
+          <LancamentoCard />
           {carteira.map((lancamento: any) => (
             <>
               <p>{JSON.stringify(lancamento)}</p>
             </>
           ))}
-        </div>
+        </Principal>
       )}
     </>
   );

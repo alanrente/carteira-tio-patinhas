@@ -3,9 +3,13 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Root } from "./routes/Root";
 import "./index.css";
-import { CarteiraPage } from "./pages/CarteiraPage";
+import { LancamentosPage } from "./pages/LancamentosPage";
 import { ErroPage } from "./pages/ErroPage";
 import { CadastrarPage } from "./pages/CadastrarPage";
+import axios from "axios";
+
+const apiUrl = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = apiUrl;
 
 const router = createBrowserRouter([
   {
@@ -13,8 +17,8 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErroPage />,
     children: [
-      { path: "carteira", element: <CarteiraPage /> },
-      { path: "another/:id", element: <CadastrarPage /> },
+      { path: "lancamentos", element: <LancamentosPage /> },
+      { path: "cadastrar", element: <CadastrarPage /> },
     ],
   },
 ]);

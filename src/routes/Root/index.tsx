@@ -5,9 +5,9 @@ export function Root() {
   return (
     <>
       <div>
-        <NavigateButton label="Home" to="/" />
-        <NavigateButton label="Carteira" to="carteira" />
-        <NavigateButton label="Cadastrar" to="another" param="1" />
+        <NavigateButton label="Carteira" to="/" />
+        <NavigateButton label="Lancamentos" to="lancamentos" />
+        <NavigateButton label="Cadastrar" to="cadastrar" />
         <div
           style={{
             border: "2px gray solid",
