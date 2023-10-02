@@ -5,8 +5,9 @@ import { Root } from "./routes/Root";
 import "./index.css";
 import { LancamentosPage } from "./pages/LancamentosPage";
 import { ErroPage } from "./pages/ErroPage";
-import { CadastrarPage } from "./pages/CadastrarPage";
+import { CategoriasPage } from "./pages/CategoriasPage";
 import axios from "axios";
+import { EditarCategoria } from "./pages/EditarCategoria.page";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 axios.defaults.baseURL = apiUrl;
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
     errorElement: <ErroPage />,
     children: [
       { path: "lancamentos", element: <LancamentosPage /> },
-      { path: "cadastrar", element: <CadastrarPage /> },
+      { path: "categorias", element: <CategoriasPage /> },
+      { path: "categorias/:categoriaId", element: <EditarCategoria /> },
     ],
   },
 ]);

@@ -7,7 +7,7 @@ export function Root() {
       <div>
         <NavigateButton label="Carteira" to="/" />
         <NavigateButton label="Lancamentos" to="lancamentos" />
-        <NavigateButton label="Cadastrar" to="cadastrar" />
+        <NavigateButton label="Categorias" to="categorias" />
         <div
           style={{
             border: "2px gray solid",
