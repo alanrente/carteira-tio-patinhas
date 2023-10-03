@@ -8,13 +8,19 @@ import {
 } from "./style";
 import { EditOutlined } from "@ant-design/icons";
 
-export function LancamentoCard() {
+export function LancamentoCard({
+  cabecalho,
+  valorAtual,
+}: {
+  cabecalho: string;
+  valorAtual: string | number;
+}) {
   return (
     <Container>
-      <Head>MXRF11</Head>
+      <Head>{cabecalho}</Head>
       <Section>
         <SectionInfos>
-          <Body>15,50</Body>
+          <Body>{valorAtual}</Body>
         </SectionInfos>
         <SectionActions>
           <EditOutlined />
