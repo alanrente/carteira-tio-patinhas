@@ -13,7 +13,6 @@ export function Root() {
             border: "2px gray solid",
           }}
         >
-          <p>Root Page</p>
           <Outlet />
         </div>
       </div>

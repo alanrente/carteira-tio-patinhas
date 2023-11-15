@@ -1,8 +1,9 @@
 import { Modal } from "antd";
 import { LancamentoCard } from "../../components/LancamentoCard";
 import { useCarteira } from "../../hooks/useCarteira";
-import { Principal, TextBodyModal } from "./style";
+import { Container, Principal, TextBodyModal } from "./style";
 import { AntdAlert } from "../../components/AntdAlert";
+import { ContainerScrollable } from "../../components/ContainerScrollable";
 
 export function LancamentosPage() {
   const {
@@ -18,20 +19,21 @@ export function LancamentosPage() {
   } = useCarteira();
 
   return (
-    <div key={"lancamentos-page"}>
-      <h3>Lançamentos</h3>
+    <Container key={"lancamentos-page"}>
       <button onClick={showModal}>Atualizar Valores</button>
-      {carteira && (
-        <Principal className="principal">
-          {carteira.map((lancamento: any, index) => (
-            <LancamentoCard
-              cabecalho={lancamento.ticket}
-              valorAtual={lancamento.valorAtual}
-              key={index}
-            />
-          ))}
-        </Principal>
-      )}
+      <ContainerScrollable>
+        {carteira && (
+          <Principal className="principal">
+            {carteira.map((lancamento: any, index) => (
+              <LancamentoCard
+                cabecalho={lancamento.ticket}
+                valorAtual={lancamento.valorAtual}
+                key={index}
+              />
+            ))}
+          </Principal>
+        )}
+      </ContainerScrollable>
       <Modal
         title="Atualizar Valores"
         open={isModalOpen}
@@ -62,6 +64,6 @@ export function LancamentosPage() {
           }}
         />
       )}
-    </div>
+    </Container>
   );
 }

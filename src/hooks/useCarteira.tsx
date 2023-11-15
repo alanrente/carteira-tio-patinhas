@@ -16,7 +16,6 @@ export function useCarteira() {
   }
 
   async function handleOk() {
-    console.log("handleOk");
     setConfirmLoading(true);
 
     await atualizarCarteira();
@@ -27,9 +26,7 @@ export function useCarteira() {
   }
 
   async function getCarteira() {
-    const {
-      data: { carteiras },
-    } = await axios.get("/carteira");
+    const { data: carteiras } = await axios.get("/ativos");
 
     if (!carteiras) return;
 
@@ -54,9 +51,6 @@ export function useCarteira() {
   useEffect(() => {
     getCarteira();
   }, []);
-  useEffect(() => {
-    console.log(visibleAlert);
-  }, [visibleAlert]);
 
   return {
     carteira,

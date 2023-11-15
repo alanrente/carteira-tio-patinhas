@@ -8,6 +8,9 @@ import { ErroPage } from "./pages/ErroPage";
 import { CategoriasPage } from "./pages/CategoriasPage";
 import axios from "axios";
 import { EditarCategoria } from "./pages/EditarCategoria.page";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const apiUrl = process.env.REACT_APP_API_URL;
 axios.defaults.baseURL = apiUrl;
@@ -29,7 +32,7 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement as HTMLElement);
 
 root.render(
-  <div>
+  <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
-  </div>
+  </QueryClientProvider>
 );
