@@ -1,7 +1,6 @@
-import { Modal } from "antd";
 import { LancamentoCard } from "../../components/LancamentoCard";
 import { useCarteira } from "../../hooks/useCarteira";
-import { Container, Principal, TextBodyModal } from "./style";
+import { Container, Principal } from "./style";
 import { AntdAlert } from "../../components/AntdAlert";
 import { ContainerScrollable } from "../../components/ContainerScrollable";
 import { Ativo } from "../../interfaces/Ativo.interface";
