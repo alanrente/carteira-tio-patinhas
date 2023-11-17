@@ -44,11 +44,25 @@ export const Head = styled.div`
 `;
 
 export const Body = styled.div`
-  /* background-color: #35bb78; */
-  padding: 12px;
+  background-color: #35bb78;
+  padding: 0 0 0 1.5rem;
+  font-size: larger;
+  font-weight: 600;
   min-height: calc(28px * 2);
 
   border-top: lightgray 2px solid;
 
   border-radius: 0 0 0 8px;
+`;
+
+export const Footer = styled.div`
+  /* background-color: #325041; */
+  font-size: small;
+  font-weight: 400;
+
+  .title {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 4px;
+  }
 `;

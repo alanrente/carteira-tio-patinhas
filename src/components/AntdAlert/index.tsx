@@ -14,6 +14,7 @@ export function AntdAlert({ args, cb }: AntdAlertProps) {
         position: "absolute",
         top: "15px",
         right: "15px",
+        zIndex: "9991",
       }}
       message={args.message}
       description={args.description}

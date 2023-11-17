@@ -4,6 +4,8 @@ import { useCarteira } from "../../hooks/useCarteira";
 import { Container, Principal, TextBodyModal } from "./style";
 import { AntdAlert } from "../../components/AntdAlert";
 import { ContainerScrollable } from "../../components/ContainerScrollable";
+import { Ativo } from "../../interfaces/Ativo.interface";
+import { ModalAtualizarValores } from "../../components/ModalAtualizarValores";
 
 export function LancamentosPage() {
   const {
@@ -20,36 +22,34 @@ export function LancamentosPage() {
 
   return (
     <Container key={"lancamentos-page"}>
-      <button onClick={showModal}>Atualizar Valores</button>
+      <button onClick={showModal} className="atualizar-valores">
+        Atualizar Valores
+      </button>
       <ContainerScrollable>
         {carteira && (
           <Principal className="principal">
-            {carteira.map((lancamento: any, index) => (
+            {carteira.map((lancamento: Ativo, index) => (
               <LancamentoCard
                 cabecalho={lancamento.ticket}
                 valorAtual={lancamento.valorAtual}
+                qtd={lancamento.qtd}
+                lpa={lancamento.lpa}
+                vp={lancamento.vp}
+                vpa={lancamento.vpa}
+                pm={lancamento.pm}
                 key={index}
+                onClick={() => console.log(lancamento.idAtivo)}
               />
             ))}
           </Principal>
         )}
       </ContainerScrollable>
-      <Modal
-        title="Atualizar Valores"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
+      <ModalAtualizarValores
         confirmLoading={confirmLoading}
-        cancelText="Não"
-        okText="Sim"
-        closeIcon={false}
-      >
-        <TextBodyModal>
-          Após atualizar, o valor será alterado e poderá estar com a data de
-          atualização mas antiga.
-        </TextBodyModal>
-        <p>Deseja continuar?</p>
-      </Modal>
+        handleCancel={handleCancel}
+        handleOk={handleOk}
+        isModalOpen={isModalOpen}
+      />
       {visibleAlert && (
         <AntdAlert
           args={{
