@@ -17,6 +17,7 @@ export function LancamentosPage() {
     visibleAlert,
     setVisibleAlert,
     description,
+    typeAlert,
   } = useCarteira();
 
   return (
@@ -52,12 +53,11 @@ export function LancamentosPage() {
       {visibleAlert && (
         <AntdAlert
           args={{
-            type: "success",
+            type: typeAlert,
             message: description,
           }}
           cb={() => {
             setTimeout(() => {
-              window.location.reload();
               setVisibleAlert(false);
             }, 1500);
           }}

@@ -45,6 +45,8 @@ export function useCarteira() {
       setTypeAlert("error");
       setDescription(err.message);
       setVisibleAlert(true);
+      handleCancel();
+      setConfirmLoading(false);
     }
   }
 
