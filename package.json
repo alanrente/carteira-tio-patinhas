@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^5.8.3"
+    "@tanstack/eslint-plugin-query": "^5.8.3",
+    "@types/antd": "^1.0.0"
   }
 }
